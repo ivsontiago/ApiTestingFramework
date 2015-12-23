@@ -16,14 +16,14 @@
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <includes>
-                        <exclude>**/*BDDTest.java</exclude>
+                        <exclude>**/*BDDTests.java</exclude>
                     </includes>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>net.masterthought</groupId>
                 <artifactId>maven-cucumber-reporting</artifactId>
-                <version>0.0.5</version>
+                <version>0.0.6</version>
                 <dependencies>
                     <dependency>
                         <groupId>com.googlecode.totallylazy</groupId>

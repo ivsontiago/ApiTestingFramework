@@ -2,3 +2,6 @@
 target/
 src/test/resources/
 *.iml
+*.properties
+src/test/resources/twitter.properties
+src/test/resources/spotify.properties
