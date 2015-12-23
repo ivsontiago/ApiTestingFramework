@@ -15,8 +15,7 @@ import java.util.UUID;
 public class authorizationHeader {
     private static long timeStamp = 1;
 
-    private static String newOauthNonce()
-    {
+    private static String newOauthNonce() {
         String uuid_string = UUID.randomUUID().toString();
         uuid_string = uuid_string.replaceAll("-", "");
         return uuid_string;
@@ -41,18 +40,16 @@ public class authorizationHeader {
         myList.add(oauth_version);
 
         //ADD PARAMETERS TO LIST
-        for (Object s : parameters)
-        {
+        for (Object s : parameters) {
             myList.add(s);
         }
         java.util.Collections.sort(myList);
 
         String parameterString = "";
-        for (Object s : myList)
-        {
+        for (Object s : myList) {
             parameterString += s + "&";
         }
-        parameterString = parameterString.substring(0, parameterString.length()-1);
+        parameterString = parameterString.substring(0, parameterString.length() - 1);
         String outputString = "POST&" + genericHelpers.percentEncode(postUrl) + "&" + genericHelpers.percentEncode(parameterString);
         return outputString;
     }

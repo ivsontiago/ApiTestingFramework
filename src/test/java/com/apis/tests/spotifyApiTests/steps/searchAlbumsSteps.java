@@ -6,25 +6,19 @@ import cucumber.api.java.en.Then;
 
 import static org.junit.Assert.assertTrue;
 
-public class searchAlbumsSteps
-{
+public class searchAlbumsSteps {
     String response;
 
     @Given("^I search for an album on Spotify using ([^\"]*)$")
-    public void iTweetAnAlbumNameOnSpotify(String albumName) throws Throwable
-    {
+    public void iTweetAnAlbumNameOnSpotify(String albumName) throws Throwable {
         response = spotifyRead.searchAlbums(albumName);
     }
 
     @Then("^the album should ([^\"]*)$")
-    public void theExpectedResultShouldBeCorrect(String expectedResult) throws Throwable
-    {
-        if (expectedResult.equals("exist"))
-        {
+    public void theExpectedResultShouldBeCorrect(String expectedResult) throws Throwable {
+        if (expectedResult.equals("exist")) {
             assertTrue("Was the item found?", spotifyRead.numberOfItemsFound(response) >= 1);
-        }
-        else if (expectedResult.equals("not exist"))
-        {
+        } else if (expectedResult.equals("not exist")) {
             assertTrue("Was the item found?", spotifyRead.numberOfItemsFound(response) == 0);
         }
     }

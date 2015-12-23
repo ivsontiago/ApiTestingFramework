@@ -7,7 +7,8 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions
         (
-                strict = false, features = "src/test/java/com/twitter/tests/features/TwitterApiTests",
+                strict = false,
+                features = "src/test/java/com/apis/tests/twitterApiTests/features",
                 format = {"pretty", "html:target/site/cucumber-pretty", "json:target/cucumber.json"},
                 tags = {"~@ignore"}
         )

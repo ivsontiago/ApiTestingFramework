@@ -9,8 +9,7 @@ import java.net.URLEncoder;
 
 public class genericHelpers {
 
-    public static boolean validateJson(String jsonArray)
-    {
+    public static boolean validateJson(String jsonArray) {
         try {
             new JSONObject(jsonArray);
         } catch (JSONException ex) {
@@ -23,34 +22,27 @@ public class genericHelpers {
         return true;
     }
 
-    public static int getJsonArrayLength(String jsonArray)
-    {
-        if (validateJson(jsonArray))
-        {
+    public static int getJsonArrayLength(String jsonArray) {
+        if (validateJson(jsonArray)) {
             JSONArray mArray = new JSONArray(jsonArray);
             return mArray.length();
         }
         return -1;
     }
 
-    public static <T> T convertStringToJsonObjectOrArray(String inputJson)
-    {
+    public static <T> T convertStringToJsonObjectOrArray(String inputJson) {
         String firstChar = String.valueOf(inputJson.charAt(0));
 
-        if (firstChar.equalsIgnoreCase("["))
-        {
+        if (firstChar.equalsIgnoreCase("[")) {
             JSONArray jArr = new JSONArray(inputJson);
             return (T) jArr;
-        }
-        else
-        {
+        } else {
             JSONObject jObj = new JSONObject(inputJson);
             return (T) jObj;
         }
     }
 
-    public static String percentEncode(String inputString) throws UnsupportedEncodingException
-    {
+    public static String percentEncode(String inputString) throws UnsupportedEncodingException {
         String encoded = "";
         try {
             encoded = URLEncoder.encode(inputString, "UTF-8");

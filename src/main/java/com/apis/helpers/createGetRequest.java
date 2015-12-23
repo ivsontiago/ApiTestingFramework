@@ -12,8 +12,7 @@ import java.util.List;
 
 public class createGetRequest {
 
-    private static String sendGetRequest(String urlToGet, List<String[]> headerParameters, getKindsOfRequest kindOfRequest) throws Exception
-    {
+    private static String sendGetRequest(String urlToGet, List<String[]> headerParameters, getKindsOfRequest kindOfRequest) throws Exception {
         URL obj = new URL(urlToGet);
         HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
         con.setRequestMethod("GET");
@@ -21,10 +20,9 @@ public class createGetRequest {
 
         if (headerParameters != null)
             for (int i = 0; i < headerParameters.size(); i++)
-                con.setRequestProperty(headerParameters.get(i)[0],headerParameters.get(i)[1]);
+                con.setRequestProperty(headerParameters.get(i)[0], headerParameters.get(i)[1]);
 
-        switch (kindOfRequest)
-        {
+        switch (kindOfRequest) {
             case TwitterSecureJson:
                 String token = bearerToken.readBearerTokenFromPropertiesFile();
                 con.setDoOutput(true);
@@ -59,39 +57,33 @@ public class createGetRequest {
     }
 
     //Twitter Get Apis
-    public static String sendGetRequestToTwitterAndReturnResponseJson(String requestUrl) throws Exception
-    {
+    public static String sendGetRequestToTwitterAndReturnResponseJson(String requestUrl) throws Exception {
         List<String[]> headerParameters = null;
         return sendGetRequest(getUrlsTwitter.BaseUrl.getUrl() + requestUrl, headerParameters, getKindsOfRequest.TwitterSecureJson);
     }
 
-    public static String sendGetRequestToTwitterAndReturnResponseStatusCode(String requestUrl) throws Exception
-    {
+    public static String sendGetRequestToTwitterAndReturnResponseStatusCode(String requestUrl) throws Exception {
         List<String[]> headerParameters = null;
         return sendGetRequest(getUrlsTwitter.BaseUrl.getUrl() + requestUrl, headerParameters, getKindsOfRequest.TwitterSecureStatus);
     }
 
 
     //Generic Get Apis
-    public static String sendGetRequestAndReturnResponseJson(String fullRequestUrl) throws Exception
-    {
+    public static String sendGetRequestAndReturnResponseJson(String fullRequestUrl) throws Exception {
         List<String[]> headerParameters = null;
         return sendGetRequest(fullRequestUrl, headerParameters, getKindsOfRequest.NormalJson);
     }
 
-    public static String sendGetRequestAndReturnResponseJson(String fullRequestUrl, List<String[]> headerParameters) throws Exception
-    {
+    public static String sendGetRequestAndReturnResponseJson(String fullRequestUrl, List<String[]> headerParameters) throws Exception {
         return sendGetRequest(fullRequestUrl, headerParameters, getKindsOfRequest.NormalJson);
     }
 
-    public static String sendGetRequestAndReturnResponseStatusCode(String fullRequestUrl) throws Exception
-    {
+    public static String sendGetRequestAndReturnResponseStatusCode(String fullRequestUrl) throws Exception {
         List<String[]> headerParameters = null;
         return sendGetRequest(fullRequestUrl, headerParameters, getKindsOfRequest.NormalStatus);
     }
 
-    public static String sendGetRequestAndReturnResponseStatusCode(String fullRequestUrl, List<String[]> headerParameters) throws Exception
-    {
+    public static String sendGetRequestAndReturnResponseStatusCode(String fullRequestUrl, List<String[]> headerParameters) throws Exception {
         return sendGetRequest(fullRequestUrl, headerParameters, getKindsOfRequest.NormalStatus);
     }
 }

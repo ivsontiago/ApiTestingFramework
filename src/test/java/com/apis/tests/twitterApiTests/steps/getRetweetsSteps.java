@@ -12,14 +12,12 @@ public class getRetweetsSteps {
     String response = "";
 
     @Given("^I request the last retweets of status ID (\\d+)$")
-    public void iRequestTheLastRetweetsOfStatusID(String statusId) throws Throwable
-    {
+    public void iRequestTheLastRetweetsOfStatusID(String statusId) throws Throwable {
         response = twitterRead.otherUsersStatusRetweets(statusId);
     }
 
     @Then("^the response should contain at least (\\d+) retweets$")
-    public void theResponseShouldContainAtLeastRetweets(int numberOfRetweets) throws Throwable
-    {
-        assertTrue("Does the status have "+numberOfRetweets+" retweets?", genericHelpers.getJsonArrayLength(response) >= numberOfRetweets);
+    public void theResponseShouldContainAtLeastRetweets(int numberOfRetweets) throws Throwable {
+        assertTrue("Does the status have " + numberOfRetweets + " retweets?", genericHelpers.getJsonArrayLength(response) >= numberOfRetweets);
     }
 }

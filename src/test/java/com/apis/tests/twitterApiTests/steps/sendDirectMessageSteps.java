@@ -6,19 +6,16 @@ import cucumber.api.java.en.Then;
 
 import static org.junit.Assert.assertTrue;
 
-public class sendDirectMessageSteps
-{
+public class sendDirectMessageSteps {
     String returnJson = "";
 
     @Given("^I tweet send a ([^\"]*) to ([^\"]*) ([^\"]*)$")
-    public void iTweetSendAMessageToUserName(String message, String userName, String userId) throws Throwable
-    {
+    public void iTweetSendAMessageToUserName(String message, String userName, String userId) throws Throwable {
         returnJson = twitterSend.newDirectMessageTo(message, userName, userId);
     }
 
     @Then("^the ([^\"]*) should be successfully sent$")
-    public void theMessageShouldBeSuccessfullySent(String message) throws Throwable
-    {
+    public void theMessageShouldBeSuccessfullySent(String message) throws Throwable {
         assertTrue(returnJson.contains("\"text\":\"") && returnJson.contains(message));
     }
 }

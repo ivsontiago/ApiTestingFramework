@@ -17,8 +17,7 @@ public class bearerToken {
         propertiesFile.setBearerToken(refreshBearerToken());
     }
 
-    public static String readBearerTokenFromPropertiesFile() throws IOException
-    {
+    public static String readBearerTokenFromPropertiesFile() throws IOException {
         return propertiesFile.getTwitterSetting("oauth.bearerToken");
     }
 
@@ -30,8 +29,7 @@ public class bearerToken {
             String fullKey = encodedConsumerKey + ":" + encodedConsumerSecret;
             byte[] encodedBytes = Base64.encodeBase64(fullKey.getBytes());
             return new String(encodedBytes);
-        }
-        catch (UnsupportedEncodingException e) {
+        } catch (UnsupportedEncodingException e) {
             return new String();
         }
     }

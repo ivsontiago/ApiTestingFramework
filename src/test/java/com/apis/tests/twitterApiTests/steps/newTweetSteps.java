@@ -10,14 +10,12 @@ import static org.junit.Assert.assertTrue;
 public class newTweetSteps {
 
     @Given("^I tweet a ([^\"]*)$")
-    public void iTweetAMessage(String message) throws Throwable
-    {
+    public void iTweetAMessage(String message) throws Throwable {
         twitterSend.newStatus(message);
     }
 
     @Then("^the ([^\"]*) should appear on my timeline$")
-    public void theMessagesShouldAppearOnMyTimeline(String message) throws Throwable
-    {
+    public void theMessagesShouldAppearOnMyTimeline(String message) throws Throwable {
         String latestTweets = twitterRead.myLatestTweets();
         assertTrue("Was the tweet posted?", latestTweets.contains(message));
     }
