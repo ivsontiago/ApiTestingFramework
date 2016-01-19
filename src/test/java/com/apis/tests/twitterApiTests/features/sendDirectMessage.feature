@@ -4,7 +4,7 @@ Feature: SendDirectMessage
   I want to be able do send direct messages
 
   Scenario Outline: SendDirectMessage
-    Given I send a <message> to <userName> <userId>
+    Given I send the direct message <message> to <userName> <userId>
     Then the <message> should be successfully sent
     Examples:
       | message | userName   | userId     |

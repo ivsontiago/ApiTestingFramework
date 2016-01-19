@@ -9,7 +9,7 @@ import static org.junit.Assert.assertTrue;
 public class sendDirectMessageSteps {
     String returnJson = "";
 
-    @Given("^I send a ([^\"]*) to ([^\"]*) ([^\"]*)$")
+    @Given("^I send the direct message ([^\"]*) to ([^\"]*) ([^\"]*)$")
     public void iTweetSendAMessageToUserName(String message, String userName, String userId) throws Throwable {
         returnJson = twitterSend.newDirectMessageTo(message, userName, userId);
     }
