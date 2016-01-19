@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
                 features = {"src/test/java/com/apis/tests/twitterApiTests/features",
                         "src/test/java/com/apis/tests/spotifyApiTests/features"},
                 format = {"pretty", "html:target/site/cucumber-pretty", "json:target/cucumber.json"},
-                tags = {"~@ignore"}
+                tags = {"~@ignore, ~@DeleteLastTweet"}
         )
 public class runBDDTests {
 }

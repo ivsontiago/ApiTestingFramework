@@ -4,8 +4,8 @@ Feature: SendDirectMessage
   I want to be able do send direct messages
 
   Scenario Outline: SendDirectMessage
-    Given I tweet send a <message> to <userName> <userId>
+    Given I send a <message> to <userName> <userId>
     Then the <message> should be successfully sent
     Examples:
-      | message | userName | userId    |
-      | Hello!  | Tmuro7   | 123441363 |
+      | message | userName   | userId     |
+      | Hello!  | ivsontiago | 3401005576 |
